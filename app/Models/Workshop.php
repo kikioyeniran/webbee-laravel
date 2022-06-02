@@ -3,11 +3,21 @@
 
 namespace App\Models;
 
-
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Date;
 
 class Workshop extends Model
 {
+    use HasFactory;
+    protected $table  = 'workshops';
+    //Primary Key
+    public $primaryKey = 'id';
+    // Timestamsp
+    public $timestamps = true;
 
+    public function event()
+    {
+        return $this->belongsTo(Event::class);
+    }
 }
